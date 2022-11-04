@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import CountryCard from './CountryCard';
 import Paginado from './Paginado';
 
-import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities } from '../actions';
+import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities, orderByAlfa, orderByPopu } from '../actions';
+import SearchBar from './SearchBar';
 
 
 
@@ -16,6 +17,8 @@ export default function Home() {
     const allActivities = useSelector((state) => state.activities)
 
     const regiones = ['Asia', 'Europe', 'Africa', 'Americas', 'Oceania', 'Antarctic']
+
+    const [orden, setOrden] = useState('');
 
     const [currentPage, setCurrentPage] = useState(1);
     const [countriesPerPage, setCountriesPerPage] = useState(10);
@@ -44,6 +47,20 @@ export default function Home() {
         dispatch(countriesFilteredByActivities(e.target.value))
     }
 
+    function handleOrderByAlfa(e) {
+        e.preventDefault();
+        dispatch(orderByAlfa(e.target.value))
+        setCurrentPage(1);
+        setOrden(e.target.value)
+    }
+
+    function handleOrderByPopu(e) {
+        e.preventDefault();
+        dispatch(orderByPopu(e.target.value))
+        setCurrentPage(1);
+        setOrden(e.target.value)
+    }
+
 
     return (
         <div>
@@ -55,15 +72,15 @@ export default function Home() {
 
             <label>
                 Ordenar por Orden Alfabetico o viceversa:
-                <select>
-                    <option value="ascendente">A - Z</option>
-                    <option value="descendente">Z - A</option>
+                <select onChange={(e) => { handleOrderByAlfa(e) }}>
+                    <option value="Asc">A - Z</option>
+                    <option value="Desc">Z - A</option>
                 </select>
             </label>
 
             <label>
                 Ordenar por Poblacion:
-                <select>
+                <select onChange={(e) => { handleOrderByPopu(e) }}>
                     <option value="poblacionAsc">Poblacion Ascendente</option>
                     <option value="PoblacionDesc">Poblacion Descendente</option>
                 </select>
@@ -89,6 +106,8 @@ export default function Home() {
                 </select>
             </label>
 
+            <SearchBar />
+
             <Paginado
                 countriesPerPage={countriesPerPage}
                 allCountries={allCountries.length}
@@ -98,7 +117,7 @@ export default function Home() {
             {
                 currentCountries && currentCountries.map((c) => {
                     return (
-                        <fragment>
+                        <div>
                             <Link to={"/countries/" + c.id}>
                                 <CountryCard
                                     name={c.name}
@@ -106,7 +125,7 @@ export default function Home() {
                                     region={c.region}
                                 />
                             </Link>
-                        </fragment>
+                        </div>
                     )
                 })
             }
