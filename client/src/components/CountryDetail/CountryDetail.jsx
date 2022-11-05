@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import { getDetails } from '../actions'
+import { getDetails } from '../../actions'
 
 export default function CountryDetail(props) {
     const dispatch = useDispatch();

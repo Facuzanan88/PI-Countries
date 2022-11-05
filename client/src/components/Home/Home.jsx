@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import CountryCard from './CountryCard';
-import Paginado from './Paginado';
+import CountryCard from '../CountryCard/CountryCard';
+import Paginado from '../Paginado/Paginado';
 
-import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities, orderByAlfa, orderByPopu } from '../actions';
-import SearchBar from './SearchBar';
+import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities, orderByAlfa, orderByPopu } from '../../actions';
+import SearchBar from '../SearchBar/SearchBar';
 
 
 
