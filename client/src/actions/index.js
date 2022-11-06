@@ -88,4 +88,15 @@ export async function newActivity(payload) {
     return json;
 }
 
+/* export function newActivity(payload) {
+    return async function (dispatch) {
+        const json = await axios.post('http://localhost:3001/activities', payload)
+        console.log(json)
+        return {
+            type: 'NEW_ACTIVITIES',
+            response
+        }
+    }
+} */
+
 

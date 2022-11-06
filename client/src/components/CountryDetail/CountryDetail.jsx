@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 
 import { getDetails } from '../../actions'
 
+import ActivityCard from '../ActivityCard/ActivityCard';
+
 export default function CountryDetail(props) {
     const dispatch = useDispatch();
 
@@ -24,7 +26,17 @@ export default function CountryDetail(props) {
             <h4>{countriesDetails.subregion}</h4>
             <h4>{countriesDetails.area}</h4>
             <h4>{countriesDetails.population}</h4>
-            <h5>Activities: {countriesDetails.activities && countriesDetails.activities.map((act) => (act.name + " "))}</h5>
+
+            <h5>Activities: {countriesDetails.activities
+                && countriesDetails.activities.map((act) =>
+                    <ActivityCard
+                        name={act.name}
+                        difficulty={act.difficulty}
+                        duration={act.duration}
+                        season={act.season}
+                    />,
+                )}</h5>
+
             <Link to="/home">VOLVER</Link>
         </div>
     )

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getActivities, getCountries, newActivity } from '../../actions';
 
+import style from './ActivityCreate.module.css';
+
 function validate(input) {
     let errors = {};
     const regexName = /^[A-z ,í-ñ-Ü-ü]{4,20}$/
@@ -107,42 +109,48 @@ export default function ActivityCreate() {
 
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
-                    <label>Name: </label>
                     <input
                         type="text"
                         value={input.name}
                         name="name"
+                        className={style.input}
+                        placeholder="name"
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.name && (
                         <p>{errors.name}</p>
                     )}
+                    {/* <label>Name: </label> */}
                 </div>
 
                 <div>
-                    <label>Difficulty: </label>
                     <input
                         type="number"
                         value={input.difficulty}
                         name="difficulty"
+                        className={style.input}
+                        placeholder="difficulty"
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.difficulty && (
                         <p>{errors.difficulty}</p>
                     )}
+                    {/*  <label>Difficulty: </label> */}
                 </div>
 
                 <div>
-                    <label>Duration: </label>
                     <input
                         type="number"
                         value={input.duration}
                         name="duration"
+                        className={style.input}
+                        placeholder="duration"
                         onChange={(e) => handleChange(e)}
                     />
                     {errors.duration && (
                         <p>{errors.duration}</p>
                     )}
+                    {/* <label>Duration: </label> */}
                 </div>
 
                 <div>

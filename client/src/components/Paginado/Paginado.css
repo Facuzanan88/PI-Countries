@@ -1,0 +1,33 @@
+.div-paginado {
+    display: inline-flex;
+    justify-content: center;
+    padding: 20px 0px 40px;
+    margin: 2%;
+    font-family: "Audiowide", sans-serif;
+
+}
+
+.div-paginado button {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1.4px solid whitesmoke;
+    border-radius: 4px;
+    font-family: "Audiowide", sans-serif;
+
+}
+
+.btn-pag :hover {
+    display: inline-flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #4caf4fb7;
+    transition: all 500ms;
+}
+
+.actual {
+    font-family: "Audiowide", sans-serif;
+    background-color: rgba(0, 0, 0, 0.644);
+    transition: all 500ms;
+}

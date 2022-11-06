@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import CountryCard from '../CountryCard/CountryCard';
 import Paginado from '../Paginado/Paginado';
 
-import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities, orderByAlfa, orderByPopu } from '../../actions';
+import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities, orderByAlfa, orderByPopu, getActivities } from '../../actions';
 import SearchBar from '../SearchBar/SearchBar';
+
+import style from './Home.module.css'
 
 
 
@@ -25,6 +27,7 @@ export default function Home() {
     const indexOfLastCountry = currentPage * countriesPerPage - 1;
     const indexOfFirstCountry = currentPage === 1 ? indexOfLastCountry - (countriesPerPage - 1) : indexOfLastCountry - countriesPerPage;
     const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
+    const length = allCountries?.length;
 
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -32,6 +35,10 @@ export default function Home() {
 
     useEffect(() => {
         dispatch(getCountries())
+    }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getActivities())
     }, [dispatch])
 
     function handleOnClick(event) {
@@ -101,35 +108,43 @@ export default function Home() {
                 <select onChange={(e) => handleFilteredByActivities(e)}>
                     <option value="allActivities">All Activities</option>
                     {allActivities.map((activity) => {
-                        return <option value={activity}> {activity} </option>
+                        return <option value={activity.name}> {activity.name} </option>
                     })}
                 </select>
             </label>
 
             <SearchBar />
 
-            <Paginado
+            {/*   <Paginado
                 countriesPerPage={countriesPerPage}
                 allCountries={allCountries.length}
                 paginado={paginado}
+            /> */}
+            <Paginado
+                value={currentPage}
+                countriesPerPage={countriesPerPage}
+                allCountries={length}
+                paginado={paginado}
             />
 
-            {
-                currentCountries && currentCountries.map((c) => {
-                    return (
-                        <div>
-                            <Link to={"/countries/" + c.id}>
+            <div className={style.card}>
+                {
+                    currentCountries && currentCountries.map((c) => {
+                        return (
+                            <div>
+
                                 <CountryCard
                                     name={c.name}
                                     flag={c.flag}
                                     region={c.region}
+                                    id={c.id}
                                 />
-                            </Link>
-                        </div>
-                    )
-                })
-            }
 
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 
