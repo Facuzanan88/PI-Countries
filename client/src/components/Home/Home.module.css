@@ -3,3 +3,54 @@
      grid-template-columns: repeat(3, 1fr);
 
  }
+
+ .searchbar {
+     width: 100%;
+     height: 4rem;
+     z-index: 1;
+     columns: 2;
+     align-items: center;
+     padding: 2rem;
+ }
+
+ .header2 {
+     padding: 1rem 1rem;
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+     color: white;
+ }
+
+
+ .filter {
+     display: grid;
+     grid-template-columns: (2, 1fr);
+     width: 4rem;
+ }
+
+ .section {
+     display: flex;
+     justify-content: space-around;
+     margin-top: 3rem;
+ }
+
+ .label {
+     color: rgba(255, 255, 255, 0.523);
+     padding: 4px;
+ }
+
+ .option {
+     color: rgba(255, 255, 255, 0.523);
+     background-color: transparent;
+ }
+
+ .button {
+     color: rgba(255, 255, 255, 0.523);
+     background-color: transparent;
+     border: 2px solid rgba(239, 239, 239, 0.203);
+     border-radius: 16px;
+     height: 2.5rem;
+ }
+
+ .button:hover {
+     color: white
+ }

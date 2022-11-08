@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image: url('https://w0.peakpx.com/wallpaper/777/712/HD-wallpaper-world-country-ocean-asia-europe-america-flags-countries.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  min-height: 200vh;
 }
 
 .App-logo {
@@ -32,6 +38,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

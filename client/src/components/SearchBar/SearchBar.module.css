@@ -7,6 +7,7 @@
     background-color: transparent;
     color: #0d0c22;
     transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    color: #777;
 }
 
 .input:focus,
@@ -14,7 +15,8 @@ input:hover {
     outline: none;
     padding: .2rem 1rem;
     border-radius: 1rem;
-    border-color: #7a9cc6;
+    border-color: #e8eaec7b;
+    color: white;
 }
 
 .input::placeholder {
@@ -26,33 +28,14 @@ input:hover {
     transition: opacity .3s;
 }
 
-.form {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-
-    padding: 3rem 35rem;
-
-}
-
-.header {
-    padding: 4rem 0rem 0rem 0rem;
-}
-
-.div {
-    padding: 3rem;
-}
-
 .button {
-    padding: 1rem 2rem;
-    border: 3px solid rgba(255, 255, 255, 0.528);
-    border-radius: 12px;
-    background-color: black;
-    opacity: 0.70;
-    color: rgba(255, 255, 255, 0.595);
+    color: rgba(255, 255, 255, 0.523);
+    background-color: transparent;
+    border: 2px solid rgba(239, 239, 239, 0.203);
+    border-radius: 16px;
+    height: 2.5rem;
 }
 
 .button:hover {
-    color: white;
-    background-color: black;
-    opacity: 0.70;
+    color: white
 }

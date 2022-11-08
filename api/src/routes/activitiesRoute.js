@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
             },
             include: Activity
         })
-
+        console.log(countryBd)
         if (!countryBd.length) return res.status(404).json('El pais ingresado no existe')
 
         /*    console.log(countryBd.activities)

@@ -1,8 +1,21 @@
+.body {
+    height: 100%;
+    min-height: 100vh;
+}
+
+.title {
+    color: white;
+    size: 16px;
+    padding: 3rem;
+}
+
+
+
 .button {
-    --glow-color: rgb(217, 176, 255);
-    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --glow-color: rgba(247, 239, 255, 0.56);
+    --glow-spread-color: rgba(158, 156, 159, 0.888);
     --enhanced-glow-color: rgb(231, 206, 255);
-    --btn-color: rgb(100, 61, 136);
+    --btn-color: rgb(112, 112, 112);
     border: .25em solid var(--glow-color);
     padding: 1em 3em;
     color: var(--glow-color);

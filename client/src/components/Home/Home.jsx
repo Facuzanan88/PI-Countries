@@ -71,49 +71,67 @@ export default function Home() {
 
     return (
         <div>
-            <Link to='/activities'>
-                <h3>Crear una Actividad Nueva</h3>
-            </Link>
+            <header>
+                <section className={style.searchbar}>
+                    <Link to='/activities'>
+                        <button className={style.button}>Crear una Actividad Nueva</button>
+                    </Link>
 
-            <button onClick={(e) => { handleOnClick(e) }}>Cargar todos los Paises</button>
+                    <SearchBar />
+                </section>
 
-            <label>
-                Ordenar por Orden Alfabetico o viceversa:
-                <select onChange={(e) => { handleOrderByAlfa(e) }}>
-                    <option value="Asc">A - Z</option>
-                    <option value="Desc">Z - A</option>
-                </select>
-            </label>
+                <button className={style.button} onClick={(e) => { handleOnClick(e) }}>Cargar todos los Paises</button>
 
-            <label>
-                Ordenar por Poblacion:
-                <select onChange={(e) => { handleOrderByPopu(e) }}>
-                    <option value="poblacionAsc">Poblacion Ascendente</option>
-                    <option value="PoblacionDesc">Poblacion Descendente</option>
-                </select>
-            </label>
+                <section className={style.section} defaultValue='Order by Name'>
+                    <section className={style.filter}>
+                        <label className={style.label}>
+                            Order By Name:
+                        </label>
+                        <select className={style.option} onChange={(e) => { handleOrderByAlfa(e) }}>
+                            <option hidden>Order by Name</option>
+                            <option value="Asc">A - Z</option>
+                            <option value="Desc">Z - A</option>
+                        </select>
+                    </section>
 
-            <label>
-                Filtrado por Continente:
-                <select onChange={(e) => handleFilteredByRegion(e)}>
-                    <option value="allRegion">All Region</option>
-                    {regiones.map((region) => {
-                        return <option value={region}> {region} </option>
-                    })}
-                </select>
-            </label>
+                    <section className={style.filter}>
+                        <label className={style.label}>
+                            Order By Population:
+                        </label>
+                        <select className={style.option} onChange={(e) => { handleOrderByPopu(e) }}>
+                            <option hidden>Order By Population</option>
+                            <option value="poblacionAsc">Poblacion Ascendente</option>
+                            <option value="PoblacionDesc">Poblacion Descendente</option>
+                        </select>
+                    </section>
 
-            <label>
-                Filtrado por Actividad:
-                <select onChange={(e) => handleFilteredByActivities(e)}>
-                    <option value="allActivities">All Activities</option>
-                    {allActivities.map((activity) => {
-                        return <option value={activity.name}> {activity.name} </option>
-                    })}
-                </select>
-            </label>
+                    <section className={style.filter}>
+                        <label className={style.label}>
+                            Filter by Region:
+                        </label>
+                        <select className={style.option} onChange={(e) => handleFilteredByRegion(e)}>
+                            <option hidden>Filter by Region</option>
+                            <option value="allRegion">All Region</option>
+                            {regiones.map((region) => {
+                                return <option value={region}> {region} </option>
+                            })}
+                        </select>
+                    </section>
 
-            <SearchBar />
+                    <section className={style.filter}>
+                        <label className={style.label}>
+                            Filter by Activities:
+                        </label>
+                        <select className={style.option} onChange={(e) => handleFilteredByActivities(e)}>
+                            <option value="allActivities">All Activities</option>
+                            {allActivities.map((activity) => {
+                                return <option value={activity.name}> {activity.name} </option>
+                            })}
+                        </select>
+                    </section>
+                </section>
+
+            </header>
 
             {/*   <Paginado
                 countriesPerPage={countriesPerPage}
@@ -145,7 +163,7 @@ export default function Home() {
                     })
                 }
             </div>
-        </div>
+        </div >
     )
 
 }

@@ -4,25 +4,24 @@
     padding: 20px 0px 40px;
     margin: 2%;
     font-family: "Audiowide", sans-serif;
-
 }
 
 .div-paginado button {
-    color: black;
-    float: left;
     padding: 8px 16px;
-    text-decoration: none;
-    border: 1.4px solid whitesmoke;
+    border: 1.4px solid rgba(239, 239, 239, 0.203);
     border-radius: 4px;
     font-family: "Audiowide", sans-serif;
-
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.636);
+    background-color: transparent;
+    margin: 2px;
 }
 
 .btn-pag :hover {
     display: inline-flex;
     justify-content: center;
     cursor: pointer;
-    background-color: #4caf4fb7;
+    background-color: #c3c8c394;
     transition: all 500ms;
 }
 

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { searchByName } from '../../actions';
 
+import style from './SearchBar.module.css'
 
 export default function SearchBar() {
     const dispatch = useDispatch();
@@ -28,9 +29,10 @@ export default function SearchBar() {
                 type="text"
                 placeholder='Nombre de Pais'
                 value={name}
+                className={style.input}
                 onChange={(e) => handleChangeName(e)} />
 
-            <button type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
+            <button className={style.button} type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
         </div>
     )
 

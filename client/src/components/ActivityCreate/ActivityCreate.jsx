@@ -104,93 +104,98 @@ export default function ActivityCreate() {
     }
 
     return (
-        <div>
-            <Link to="home"><button>BACK</button></Link>
+        <div  >
+            <header className={style.header}>
+                <Link to="home"><button className={style.button}>BACK</button></Link>
+            </header>
 
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
                 <div>
-                    <input
-                        type="text"
-                        value={input.name}
-                        name="name"
-                        className={style.input}
-                        placeholder="name"
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.name && (
-                        <p>{errors.name}</p>
-                    )}
-                    {/* <label>Name: </label> */}
-                </div>
+                    <div className={style.div}>
+                        <input
+                            type="text"
+                            value={input.name}
+                            name="name"
+                            className={style.input}
+                            placeholder="name"
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {errors.name && (
+                            <p>{errors.name}</p>
+                        )}
+                        {/* <label>Name: </label> */}
+                    </div>
 
-                <div>
-                    <input
-                        type="number"
-                        value={input.difficulty}
-                        name="difficulty"
-                        className={style.input}
-                        placeholder="difficulty"
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.difficulty && (
-                        <p>{errors.difficulty}</p>
-                    )}
-                    {/*  <label>Difficulty: </label> */}
-                </div>
+                    <div className={style.div}>
+                        <input
+                            type="number"
+                            value={input.difficulty}
+                            name="difficulty"
+                            className={style.input}
+                            placeholder="difficulty"
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {errors.difficulty && (
+                            <p>{errors.difficulty}</p>
+                        )}
+                        {/*  <label>Difficulty: </label> */}
+                    </div>
 
-                <div>
-                    <input
-                        type="number"
-                        value={input.duration}
-                        name="duration"
-                        className={style.input}
-                        placeholder="duration"
-                        onChange={(e) => handleChange(e)}
-                    />
-                    {errors.duration && (
-                        <p>{errors.duration}</p>
-                    )}
-                    {/* <label>Duration: </label> */}
-                </div>
+                    <div className={style.div}>
+                        <input
+                            type="number"
+                            value={input.duration}
+                            name="duration"
+                            className={style.input}
+                            placeholder="duration"
+                            onChange={(e) => handleChange(e)}
+                        />
+                        {errors.duration && (
+                            <p>{errors.duration}</p>
+                        )}
+                        {/* <label>Duration: </label> */}
+                    </div>
 
-                <div>
-                    {
-                        season && season.map((s) => {
-                            return (
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        value={s}
-                                        name={s}
-                                        onChange={(e) => handleCheck(e)}
-                                    />{s} </label>
-                            )
-                        })
-                    }
-                    {errors.season && (
-                        <p>{errors.season}</p>
-                    )}
-                </div>
 
-                <div>
-                    <label>Country: </label>
-                    <select onChange={(e) => handleSelect(e)}>
-                        <option>-----</option>
+                    <div className={style.div}>
                         {
-                            allCountries && allCountries.map((c, i) => {
+                            season && season.map((s) => {
                                 return (
-                                    <option
-                                        key={i}
-                                        value={c.name}
-                                        name={c.name}
-                                    >{c.name}</option>
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            value={s}
+                                            name={s}
+                                            onChange={(e) => handleCheck(e)}
+                                        />{s} </label>
                                 )
                             })
                         }
-                    </select>
-                    <label>{input.country}</label>
+                        {errors.season && (
+                            <p>{errors.season}</p>
+                        )}
+                    </div>
+
+                    <div>
+                        <label>Country: </label>
+                        <select onChange={(e) => handleSelect(e)}>
+                            <option>-----</option>
+                            {
+                                allCountries && allCountries.map((c, i) => {
+                                    return (
+                                        <option
+                                            key={i}
+                                            value={c.name}
+                                            name={c.name}
+                                        >{c.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                        <label>{input.country}</label>
+                    </div>
+                    <button>X</button>
                 </div>
-                <button>X</button>
             </form>
         </div>
     )

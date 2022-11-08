@@ -1,0 +1,50 @@
+.main {
+    display: grid;
+    grid-template-columns: (2, 1fr);
+    width: 4rem;
+    padding: 2rem 25rem;
+}
+
+.conteiner {
+    color: rgba(150, 165, 165, 0.878);
+    border: 4px solid rgba(255, 255, 255, 0.355);
+    border-radius: 2rem;
+    width: fit-content;
+    padding: 2rem 10rem;
+    background-color: black;
+    opacity: 0.85;
+}
+
+.img {
+    height: 200px;
+    width: 360px;
+    padding: 2rem 2rem 2rem 2rem;
+}
+
+.div {
+    columns: 2;
+
+    padding: 4px 0px;
+}
+
+.tilte {
+    padding: 2rem;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.button {
+    padding: 1rem 2rem;
+    border: 3px solid rgba(255, 255, 255, 0.528);
+    border-radius: 12px;
+    background-color: black;
+    opacity: 0.75;
+    color: rgba(255, 255, 255, 0.595);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+}
