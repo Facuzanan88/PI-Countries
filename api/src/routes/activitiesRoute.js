@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
                 duration,
                 season
             },
+            include: Country
         })
         const countryBd = await Country.findAll({
             where: {
@@ -35,10 +36,10 @@ router.post('/', async (req, res) => {
                if (countryActivity) return res.status(200).json("El pais ya posee la actividad")
            } */
 
+        if (!created) return res.status(200).json('La actividad ya fue creada correctamente')
 
         await newActivity.addCountry(countryBd);
 
-        if (!created) return res.status(200).json('La actividad ya fue creada correctamente')
 
         return res.status(200).json("La actividad se creo exitosamente en el pais correspondiente");
     } catch (err) {

@@ -20,6 +20,11 @@ export default function CountryDetail(props) {
 
     return (
         <main className={style.main}>
+            <header className={style.header}>
+                <Link to="/home">
+                    <button className={style.button}>VOLVER</button>
+                </Link>
+            </header>
             <div className={style.conteiner}>
                 <h1 className={style.tilte}>{countriesDetails.name}</h1>
 
@@ -64,11 +69,7 @@ export default function CountryDetail(props) {
                         )}</h5>
                 </div>
             </div>
-            <footer className={style.footer}>
-                <Link to="/home">
-                    <button className={style.button}>VOLVER</button>
-                </Link>
-            </footer>
+
         </main>
     )
 

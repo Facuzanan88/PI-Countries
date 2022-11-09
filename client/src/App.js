@@ -9,12 +9,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="/home" component={Home} />
-          <Route path="/activities" component={ActivityCreate} />
-          <Route exact path='/countries/:id' component={countryDetail} />
-        </Switch>
+        <div className="App1">
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/home" component={Home} />
+            <Route path="/activities" component={ActivityCreate} />
+            <Route exact path='/countries/:id' component={countryDetail} />
+          </Switch>
+        </div>
       </div>
     </BrowserRouter>
   );

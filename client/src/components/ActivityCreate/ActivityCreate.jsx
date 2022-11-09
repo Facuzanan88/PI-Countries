@@ -41,7 +41,7 @@ function validate(input) {
 export default function ActivityCreate() {
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    /* const history = useHistory(); */
 
     const allCountries = useSelector((state) => state.countries)
     const activities = useSelector((state) => state.activities)
@@ -90,12 +90,20 @@ export default function ActivityCreate() {
     function handleSelect(e) {
         setInput({
             ...input,
-            country: e.target.value
+            country: [...input.country, e.target.value]
         })
         setErrors(validate({
             ...input,
-
+            [e.target.name]: e.target.value
         }))
+    }
+
+    function handleDelete(e) {
+        setInput({
+            ...input,
+            country: input.country.filter(cou => cou !== e)
+        })
+
     }
 
     function handleSubmit(e) {
@@ -104,13 +112,15 @@ export default function ActivityCreate() {
     }
 
     return (
-        <div  >
+        <div>
             <header className={style.header}>
                 <Link to="home"><button className={style.button}>BACK</button></Link>
             </header>
 
-            <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
-                <div>
+            <div className={style.divero}>
+                <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
+                    <h3 className={style.label}>Create an Activity: </h3>
+
                     <div className={style.div}>
                         <input
                             type="text"
@@ -121,7 +131,7 @@ export default function ActivityCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.name && (
-                            <p>{errors.name}</p>
+                            <p className={style.label}>{errors.name}</p>
                         )}
                         {/* <label>Name: </label> */}
                     </div>
@@ -136,7 +146,7 @@ export default function ActivityCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.difficulty && (
-                            <p>{errors.difficulty}</p>
+                            <p className={style.label}>{errors.difficulty}</p>
                         )}
                         {/*  <label>Difficulty: </label> */}
                     </div>
@@ -147,11 +157,11 @@ export default function ActivityCreate() {
                             value={input.duration}
                             name="duration"
                             className={style.input}
-                            placeholder="duration"
+                            placeholder="duration (hs)"
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.duration && (
-                            <p>{errors.duration}</p>
+                            <p className={style.label}>{errors.duration}</p>
                         )}
                         {/* <label>Duration: </label> */}
                     </div>
@@ -161,42 +171,58 @@ export default function ActivityCreate() {
                         {
                             season && season.map((s) => {
                                 return (
-                                    <label>
+                                    <label className={style.label}>
                                         <input
-                                            type="checkbox"
+                                            type="radio"
                                             value={s}
-                                            name={s}
+                                            name='season'
                                             onChange={(e) => handleCheck(e)}
                                         />{s} </label>
                                 )
                             })
                         }
-                        {errors.season && (
-                            <p>{errors.season}</p>
-                        )}
                     </div>
 
-                    <div>
-                        <label>Country: </label>
-                        <select onChange={(e) => handleSelect(e)}>
-                            <option>-----</option>
+                    <div className={style.season}>
+                        <label className={style.label}>Country: </label>
+                        <div className={style.divero}>
+                            <select className={style.option} onChange={(e) => handleSelect(e)}>
+                                <option>-----</option>
+                                {
+                                    allCountries && allCountries.map((c, i) => {
+                                        return (
+                                            <option
+                                                key={i}
+                                                value={c.name}
+                                                name={c.name}
+
+                                            >{c.name}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                            {errors.country && (
+                                <p className={style.label}>{errors.country}</p>
+                            )}
+                        </div>
+                        <div>
                             {
-                                allCountries && allCountries.map((c, i) => {
+                                input.country && input.country.map(s => {
                                     return (
-                                        <option
-                                            key={i}
-                                            value={c.name}
-                                            name={c.name}
-                                        >{c.name}</option>
+                                        <div>
+                                            <label className={style.country}> {s} </label>
+                                            <button onClick={() => handleDelete(s)}>X</button>
+                                        </div>
                                     )
                                 })
                             }
-                        </select>
-                        <label>{input.country}</label>
+                        </div>
                     </div>
-                    <button>X</button>
-                </div>
-            </form>
-        </div>
+                    <footer className={style.footer}>
+                        <button className={style.button}>Created</button>
+                    </footer>
+                </form >
+            </div>
+        </div >
     )
 }

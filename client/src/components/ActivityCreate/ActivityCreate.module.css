@@ -5,16 +5,16 @@
     padding: .2rem 0;
     outline: none;
     background-color: transparent;
-    color: #0d0c22;
+    color: #eeeef4;
     transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .input:focus,
 input:hover {
     outline: none;
-    padding: .2rem 1rem;
     border-radius: 1rem;
     border-color: #7a9cc6;
+    color: white
 }
 
 .input::placeholder {
@@ -26,19 +26,22 @@ input:hover {
     transition: opacity .3s;
 }
 
-.form {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-
-    padding: 3rem 35rem;
-
-}
-
 .header {
-    padding: 4rem 0rem 0rem 0rem;
+    padding: 3rem 0rem 2rem 0rem;
 }
 
 .div {
+    padding: 3rem;
+    /*    display: flex;
+    justify-content: center;
+    align-items: center; */
+    gap: 1rem;
+}
+
+.form {
+    border: 2px solid rgba(239, 239, 239, 0.593);
+    border-radius: 8px;
+    width: fit-content;
     padding: 3rem;
 }
 
@@ -47,12 +50,54 @@ input:hover {
     border: 3px solid rgba(255, 255, 255, 0.528);
     border-radius: 12px;
     background-color: black;
-    opacity: 0.70;
+    opacity: 0.75;
     color: rgba(255, 255, 255, 0.595);
 }
 
 .button:hover {
     color: white;
     background-color: black;
-    opacity: 0.70;
+    opacity: 1;
+}
+
+.season {
+    color: rgba(255, 255, 255, 0.595);
+}
+
+.label {
+    color: white;
+}
+
+.footer {
+    padding: 2rem;
+}
+
+.country {
+    color: rgba(255, 255, 255, 0.523);
+    padding: 0.5rem;
+}
+
+.divero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+.option {
+    color: rgba(255, 255, 255, 0.523);
+    background-color: transparent;
+    border-radius: 16px;
+    padding: 4px;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.option:hover {
+    color: rgba(255, 255, 255, 0.523);
+    background-color: black;
+    border-radius: 16px;
+    padding: 4px;
+    height: 2.5rem;
+    cursor: pointer;
 }

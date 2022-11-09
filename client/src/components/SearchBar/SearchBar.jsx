@@ -14,7 +14,6 @@ export default function SearchBar() {
     function handleChangeName(e) {
         e.preventDefault();
         setName(e.target.value);
-
     }
 
     function handleSubmit(e) {
@@ -27,12 +26,12 @@ export default function SearchBar() {
         <div>
             <input
                 type="text"
-                placeholder='Nombre de Pais'
+                placeholder='Country Name'
                 value={name}
                 className={style.input}
                 onChange={(e) => handleChangeName(e)} />
 
-            <button className={style.button} type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
+            <button className={style.button} type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
         </div>
     )
 

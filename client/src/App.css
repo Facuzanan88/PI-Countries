@@ -1,12 +1,21 @@
 .App {
   text-align: center;
-  background-image: url('https://w0.peakpx.com/wallpaper/777/712/HD-wallpaper-world-country-ocean-asia-europe-america-flags-countries.jpg');
+  background-image: url('https://i.pinimg.com/736x/47/1b/0c/471b0c13fac47926ead53a4f5ac69934.jpg');
+  /*   background-image: url('https://w0.peakpx.com/wallpaper/777/712/HD-wallpaper-world-country-ocean-asia-europe-america-flags-countries.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100%;
-  min-height: 200vh;
+  min-height: 165vh;
 }
+
+.App1 {
+  background-color: black;
+  opacity: 0.85;
+  height: 100%;
+  min-height: 165vh;
+}
+
 
 .App-logo {
   height: 40vmin;

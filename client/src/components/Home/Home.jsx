@@ -48,10 +48,12 @@ export default function Home() {
 
     function handleFilteredByRegion(e) {
         dispatch(countriesFilteredByRegion(e.target.value))
+        setCurrentPage(1);
     }
 
     function handleFilteredByActivities(e) {
         dispatch(countriesFilteredByActivities(e.target.value))
+        setCurrentPage(1);
     }
 
     function handleOrderByAlfa(e) {
@@ -74,13 +76,13 @@ export default function Home() {
             <header>
                 <section className={style.searchbar}>
                     <Link to='/activities'>
-                        <button className={style.button}>Crear una Actividad Nueva</button>
+                        <button className={style.button}>Create a New Activity</button>
                     </Link>
 
                     <SearchBar />
                 </section>
 
-                <button className={style.button} onClick={(e) => { handleOnClick(e) }}>Cargar todos los Paises</button>
+                <button className={style.button} onClick={(e) => { handleOnClick(e) }}>Reload All Countries</button>
 
                 <section className={style.section} defaultValue='Order by Name'>
                     <section className={style.filter}>

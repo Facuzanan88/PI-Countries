@@ -42,9 +42,15 @@
     color: rgba(255, 255, 255, 0.595);
 }
 
-.footer {
+.button:hover {
+    color: white;
+    background-color: black;
+    opacity: 1;
+}
+
+.header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4rem;
+    padding: 0rem 0rem 2rem 0rem;
 }
