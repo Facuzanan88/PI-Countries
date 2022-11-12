@@ -70,6 +70,9 @@ export default function Home() {
         setOrden(e.target.value)
     }
 
+    const activity = allActivities;
+    let hash = {};
+    const array = activity.filter(o => (hash[o.name] ? false : hash[o.name] = true));
 
     return (
         <div>
@@ -102,8 +105,8 @@ export default function Home() {
                         </label>
                         <select className={style.option} onChange={(e) => { handleOrderByPopu(e) }}>
                             <option hidden>Order By Population</option>
-                            <option value="poblacionAsc">Poblacion Ascendente</option>
-                            <option value="PoblacionDesc">Poblacion Descendente</option>
+                            <option value="poblacionAsc">ascend</option>
+                            <option value="PoblacionDesc">descend</option>
                         </select>
                     </section>
 
@@ -126,7 +129,7 @@ export default function Home() {
                         </label>
                         <select className={style.option} onChange={(e) => handleFilteredByActivities(e)}>
                             <option value="allActivities">All Activities</option>
-                            {allActivities.map((activity) => {
+                            {array.map((activity) => {
                                 return <option value={activity.name}> {activity.name} </option>
                             })}
                         </select>
@@ -135,11 +138,6 @@ export default function Home() {
 
             </header>
 
-            {/*   <Paginado
-                countriesPerPage={countriesPerPage}
-                allCountries={allCountries.length}
-                paginado={paginado}
-            /> */}
             <Paginado
                 value={currentPage}
                 countriesPerPage={countriesPerPage}

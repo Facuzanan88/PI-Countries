@@ -5,8 +5,12 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
   height: 100%;
-  min-height: 165vh;
+  width: 100%;
+  height: fit-content;
 }
 
 .App1 {

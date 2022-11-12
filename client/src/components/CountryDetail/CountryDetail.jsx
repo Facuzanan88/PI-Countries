@@ -22,7 +22,7 @@ export default function CountryDetail(props) {
         <main className={style.main}>
             <header className={style.header}>
                 <Link to="/home">
-                    <button className={style.button}>VOLVER</button>
+                    <button className={style.button}>BACK</button>
                 </Link>
             </header>
             <div className={style.conteiner}>

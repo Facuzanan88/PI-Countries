@@ -1,27 +1,6 @@
 import React from 'react';
 
-import style from './Paginado.css'
-
-/* export default function Paginado({ countriesPerPage, allCountries, paginado }) {
-    const pageNumber = [];
-
-    for (let i = 0; i < Math.ceil((allCountries / countriesPerPage) + 1); i++) {
-        pageNumber.push(i + 1)
-    }
-
-    return (
-        <nav className="paginateContainer">
-            <ul className="paginate">
-                {pageNumber &&
-                    pageNumber.map((number) => (
-                        <li key={number}>
-                            <a onClick={() => paginado(number)}> {number} </a>
-                        </li>
-                    ))}
-            </ul>
-        </nav>
-    )
-} */
+import style from './Paginado.module.css';
 
 export default function Paginado({ countriesPerPage, allCountries, paginado, value }) {
     const pageNumbers = []
@@ -30,11 +9,11 @@ export default function Paginado({ countriesPerPage, allCountries, paginado, val
     }
     return (
         <div>
-            <div className="div-paginado">
+            <div className={style.divpaginado}>
                 {pageNumbers && pageNumbers.map(number => (
-                    <div className="btn-pag" key={number.toString()} >
+                    <div className={style.btnpag} key={number.toString()} >
                         <button
-                            className={number === value ? 'actual' : 'boton-paginado'}
+                            className={number === value ? style.actual : style.botonpaginado}
                             onClick={() => paginado(number)}>
                             {number}
                         </button>

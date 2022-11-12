@@ -1,4 +1,4 @@
-.div-paginado {
+.divpaginado {
     display: inline-flex;
     justify-content: center;
     padding: 20px 0px 40px;
@@ -6,7 +6,7 @@
     font-family: "Audiowide", sans-serif;
 }
 
-.div-paginado button {
+.divpaginado button {
     padding: 8px 16px;
     border: 1.4px solid rgba(239, 239, 239, 0.203);
     border-radius: 4px;
@@ -17,7 +17,7 @@
     margin: 2px;
 }
 
-.btn-pag :hover {
+.btnpag :hover {
     display: inline-flex;
     justify-content: center;
     cursor: pointer;

@@ -83,9 +83,14 @@ export function getActivities() {
     }
 }
 
-export async function newActivity(payload) {
-    let json = await axios.post('http://localhost:3001/activities', payload)
-    return json;
+export function newActivity(payload) {
+    return async function (dispatch) {
+        const json = await axios.post('http://localhost:3001/activities', payload)
+        return {
+            type: 'POST_ACTIVITY',
+            json
+        }
+    }
 }
 
 /* export function newActivity(payload) {

@@ -7,6 +7,7 @@
     background-color: transparent;
     color: #eeeef4;
     transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    text-align: center;
 }
 
 .input:focus,
@@ -27,11 +28,11 @@ input:hover {
 }
 
 .header {
-    padding: 3rem 0rem 2rem 0rem;
+    padding: 2rem 0rem 1.5rem 0rem;
 }
 
 .div {
-    padding: 3rem;
+    padding: 2rem;
     /*    display: flex;
     justify-content: center;
     align-items: center; */
@@ -42,7 +43,7 @@ input:hover {
     border: 2px solid rgba(239, 239, 239, 0.593);
     border-radius: 8px;
     width: fit-content;
-    padding: 3rem;
+    padding: 2rem 3rem 0rem 3rem;
 }
 
 .button {
@@ -69,7 +70,7 @@ input:hover {
 }
 
 .footer {
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 .country {
@@ -79,8 +80,9 @@ input:hover {
 
 .divero {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: 2rem;
     padding: 12px;
 }
 
@@ -100,4 +102,25 @@ input:hover {
     padding: 4px;
     height: 2.5rem;
     cursor: pointer;
+}
+
+.countryletter {
+    border: 1px solid rgba(255, 255, 255, 0.528);
+}
+
+.countryletter2 {
+    padding-bottom: 10rem;
+}
+
+
+.img {
+    height: 13px;
+    width: 19px;
+    padding: 5px;
+}
+
+.delete {
+    color: white;
+    background-color: black;
+    opacity: 0.9;
 }
