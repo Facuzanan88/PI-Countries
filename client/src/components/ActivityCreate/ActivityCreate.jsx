@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { countriesFilteredByRegion, getActivities, getCountries, newActivity } from '../../actions';
+import { getActivities, getCountries, newActivity } from '../../actions';
 
 import style from './ActivityCreate.module.css';
 
@@ -21,17 +21,15 @@ function validate(input) {
         errors.difficulty = 'This item is out of the required range'
     }
 
-    if (input.season.length < 1) {
-        errors.season = 'this item is required'
-    } else if (input.season.length !== 0) {
-        errors.season = 'Only one season can be selected'
+    if (input.season.length === 0) {
+        errors.season = 'you must select a season'
     }
 
-    if (!input.duration || input.duration === null) errors.duration = 'this item is required'
-    if (input.duration <= 0) errors.duration = 'this item is not valid'
+    if (!input.duration || input.duration === 0) errors.duration = 'this item is required'
+    if (input.duration < 0) errors.duration = 'this item is not valid'
 
     if (!input.country.length) {
-        errors.country = 'Este campo es requerido'
+        errors.country = 'this item is required'
     };
     return errors
 }
@@ -43,7 +41,6 @@ export default function ActivityCreate() {
     const history = useHistory();
 
     const allCountries = useSelector((state) => state.countries)
-    const activities = useSelector((state) => state.activities)
 
     const season = ['Winter', 'Spring', 'Summer', 'Autumn']
 
@@ -118,8 +115,13 @@ export default function ActivityCreate() {
         } else {
             if (input.country.length > 1) {
                 console.log(input.country)
+
+                const dataArr = new Set(input.country);
+                let result = [...dataArr];
+                console.log(result)
+
                 const act = []
-                for (let i = 0; i < input.country.length; i++) {
+                for (let i = 0; i < result.length; i++) {
                     act.push({
                         name: input.name,
                         difficulty: input.difficulty,
@@ -227,6 +229,12 @@ export default function ActivityCreate() {
                                 )
                             })
                         }
+                        <div>
+                            {errors.season && (
+                                <p className={style.label}>{errors.season}</p>
+                            )}
+
+                        </div>
                     </div>
 
                     <div className={style.season}>

@@ -14,7 +14,7 @@ export default function CountryDetail(props) {
 
     useEffect(() => {
         dispatch(getDetails(props.match.params.id));
-    })
+    }, [props.match.params.id, dispatch])
 
     const countriesDetails = useSelector((state) => state.countriesDetails)
 
@@ -56,16 +56,21 @@ export default function CountryDetail(props) {
                         <h4>{countriesDetails.population}</h4>
                     </section>
                 </div>
-                <div>
-                    <label>Activities:</label>
+
+                <div className={style.labelact}>
+                    <label >Activities:</label>
+                </div>
+                <div className={style.activities}>
                     <h5>{countriesDetails.activities
                         && countriesDetails.activities.map((act) =>
-                            <ActivityCard
-                                name={act.name}
-                                difficulty={act.difficulty}
-                                duration={act.duration}
-                                season={act.season}
-                            />,
+                            <div className={style.activities2}>
+                                <ActivityCard
+                                    name={act.name}
+                                    difficulty={act.difficulty}
+                                    duration={act.duration}
+                                    season={act.season}
+                                />
+                            </div>
                         )}</h5>
                 </div>
             </div>

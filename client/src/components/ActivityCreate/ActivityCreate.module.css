@@ -44,6 +44,7 @@ input:hover {
     border-radius: 8px;
     width: fit-content;
     padding: 2rem 3rem 0rem 3rem;
+    /*  position: absolute; */
 }
 
 .button {
@@ -109,7 +110,7 @@ input:hover {
 }
 
 .countryletter2 {
-    padding-bottom: 10rem;
+    columns: 2;
 }
 
 
