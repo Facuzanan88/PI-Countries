@@ -110,37 +110,58 @@ export default function ActivityCreate() {
             input.difficulty > 5 ||
             !input.duration ||
             !input.season ||
-            !input.country.length) {
+            !input.country.length > 0) {
             return alert('You must complete all required items')
         } else {
-            if (input.country.length > 1) {
-                console.log(input.country)
 
-                const dataArr = new Set(input.country);
-                let result = [...dataArr];
-                console.log(result)
+            /*          function confirmacion(){
+                         var respuesta = window.confirm('Are you sure you want to edit the activity?')
+                         if (respuesta === true){
+                             dispatch(cleanDetails())
+                             dispatch(updateActivity(ID,input))
+                             .then(res=>{
+                                 alert(res)
+                             })
+                         }
+                     } 
+                     confirmacion() */
 
-                const act = []
-                for (let i = 0; i < result.length; i++) {
-                    act.push({
-                        name: input.name,
-                        difficulty: input.difficulty,
-                        duration: input.duration,
-                        season: input.season,
-                        country: [input.country[i]],
-                    })
+            function confirmacion() {
+                var respuesta = window.confirm('Are you sure you want to create the activity?')
+                if (respuesta === true) {
+                    if (input.country.length > 1) {
+                        console.log(input.country)
+
+                        const dataArr = new Set(input.country);
+                        let result = [...dataArr];
+                        console.log(result)
+
+                        const act = []
+                        for (let i = 0; i < result.length; i++) {
+                            act.push({
+                                name: input.name,
+                                difficulty: input.difficulty,
+                                duration: input.duration,
+                                season: input.season,
+                                country: [input.country[i]],
+                            })
+                        }
+                        console.log(act)
+
+                        for (let i = 0; i < act.length; i++) {
+                            dispatch(newActivity(act[i]))
+                        }
+                        alert('The activity was created successfully')
+                        history.push('/home')
+
+                    } else {
+                        dispatch(newActivity(input))
+                        alert('The activity was created successfully')
+                        history.push('/home')
+                    }
                 }
-                console.log(act)
-                for (let i = 0; i < act.length; i++) {
-                    dispatch(newActivity(act[i]))
-                }
-                alert('The activity was created successfully')
-                history.push('/home')
-            } else {
-                dispatch(newActivity(input))
-                alert('The activity was created successfully')
-                history.push('/home')
             }
+            confirmacion()
         }
     }
 
