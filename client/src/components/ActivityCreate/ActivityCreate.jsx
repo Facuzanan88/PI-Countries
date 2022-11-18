@@ -28,7 +28,7 @@ function validate(input) {
     if (!input.duration || input.duration === 0) errors.duration = 'this item is required'
     if (input.duration < 0) errors.duration = 'this item is not valid'
 
-    if (!input.country.length) {
+    if (input.country.length === 0) {
         errors.country = 'this item is required'
     };
     return errors
@@ -41,6 +41,17 @@ export default function ActivityCreate() {
     const history = useHistory();
 
     const allCountries = useSelector((state) => state.countries)
+
+    const OrderCountries = allCountries.sort((a, b) => {
+        if (a.name < b.name) {
+            return -1;
+        } else if (a.name > b.name) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+
 
     const season = ['Winter', 'Spring', 'Summer', 'Autumn']
 
@@ -113,18 +124,6 @@ export default function ActivityCreate() {
             !input.country.length > 0) {
             return alert('You must complete all required items')
         } else {
-
-            /*          function confirmacion(){
-                         var respuesta = window.confirm('Are you sure you want to edit the activity?')
-                         if (respuesta === true){
-                             dispatch(cleanDetails())
-                             dispatch(updateActivity(ID,input))
-                             .then(res=>{
-                                 alert(res)
-                             })
-                         }
-                     } 
-                     confirmacion() */
 
             function confirmacion() {
                 var respuesta = window.confirm('Are you sure you want to create the activity?')
@@ -262,9 +261,9 @@ export default function ActivityCreate() {
                         <label className={style.label}>Country: </label>
                         <div>
                             <select className={style.option} onChange={(e) => handleSelect(e)}>
-                                <option>------------------</option>
+                                <option selected disabled>Choose a country</option>
                                 {
-                                    allCountries && allCountries.map((c, i) => {
+                                    OrderCountries && OrderCountries.map((c, i) => {
                                         return (
                                             <option
                                                 key={i}

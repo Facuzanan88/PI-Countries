@@ -9,6 +9,8 @@ export const SEARCH_BY_NAME = "SEARCH_BY_NAME";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const NEW_ACTIVITIES = "NEW_ACTIVITIES";
 export const GET_DETAILS = "GET_DETAILS";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
+
 
 export function getCountries() {
     return async function (dispatch) {
@@ -93,6 +95,15 @@ export function newActivity(payload) {
     }
 }
 
+export function deleteActivity(id) {
+    return async function (dispatch) {
+        let json = await axios.delete(`http://localhost:3001/activities/${id}`)
+        return dispatch({
+            type: DELETE_ACTIVITY,
+            payload: json.data
+        })
+    }
+}
 
 
 

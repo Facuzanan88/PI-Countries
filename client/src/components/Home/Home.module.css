@@ -10,7 +10,7 @@
      z-index: 1;
      columns: 2;
      align-items: center;
-     padding: 2rem;
+     padding: 1.75rem;
  }
 
  .header2 {
@@ -30,13 +30,12 @@
  .section {
      display: flex;
      justify-content: space-around;
-     margin-top: 3rem;
+     margin-top: 3.5rem;
      margin-right: 4rem;
  }
 
  .label {
      color: rgba(255, 255, 255, 0.523);
-     padding: 4px;
  }
 
  .option {

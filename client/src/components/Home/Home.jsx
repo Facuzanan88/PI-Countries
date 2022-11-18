@@ -22,14 +22,16 @@ export default function Home() {
 
     const [orden, setOrden] = useState('');
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const [countriesPerPage, setCountriesPerPage] = useState(10);
-    const indexOfLastCountry = currentPage * countriesPerPage - 1;
-    const indexOfFirstCountry = currentPage === 1 ? indexOfLastCountry - (countriesPerPage - 1) : indexOfLastCountry - countriesPerPage;
-    const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
-    const length = allCountries?.length;
+    const [currentPage, setCurrentPage] = useState(1);  // pagina actual, comienza siempre en la primera (1)
+    const [countriesPerPage, setCountriesPerPage] = useState(10);  // paises renderizados por pagina. (9) en la primera y (10) en el resto.
+    const indexOfLastCountry = currentPage * countriesPerPage - 1; // indice del ultimo pais renderizado por pagina.
+    const indexOfFirstCountry = currentPage === 1 ? indexOfLastCountry - (countriesPerPage - 1) : indexOfLastCountry - countriesPerPage; // indice del primer pais de cada pagina, condicionando 
+    const currentCountries = allCountries.slice(indexOfFirstCountry, indexOfLastCountry) // genera un array que va a tener dentro tantos array como pagina con la cantidad de indices que se van a renderizar por pagina. Por ejemplo [[1, 2, 3, 4, 5, 6, 7, 8, 9], [10, ..., 19], [20, ..., 29]]
+    //                                                                                                                                                      pag 1              -     pag 2   -     pag 3
+    const length = allCountries?.length; // cantidad de paises
 
-    const paginado = (pageNumber) => {
+
+    function paginado(pageNumber) {  // funcion que me hace pasar las paginas 
         setCurrentPage(pageNumber);
     }
 
@@ -44,6 +46,7 @@ export default function Home() {
     function handleOnClick(event) {
         event.preventDefault();
         dispatch(getCountries());
+        setCurrentPage(1);
     }
 
     function handleFilteredByRegion(e) {

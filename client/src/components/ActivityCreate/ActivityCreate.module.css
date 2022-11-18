@@ -94,6 +94,7 @@ input:hover {
     padding: 4px;
     height: 2.5rem;
     cursor: pointer;
+    text-align: center;
 }
 
 .option:hover {
