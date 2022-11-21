@@ -202,7 +202,7 @@ export default function ActivityCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.name && (
-                            <p className={style.label}>{errors.name}</p>
+                            <p key={errors.name} className={style.label}>{errors.name}</p>
                         )}
                     </div>
 
@@ -216,7 +216,7 @@ export default function ActivityCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.difficulty && (
-                            <p className={style.label}>{errors.difficulty}</p>
+                            <p key={errors.difficulty} className={style.label}>{errors.difficulty}</p>
                         )}
                     </div>
 
@@ -230,7 +230,7 @@ export default function ActivityCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.duration && (
-                            <p className={style.label}>{errors.duration}</p>
+                            <p key={errors.duration} className={style.label}>{errors.duration}</p>
                         )}
                     </div>
 
@@ -239,7 +239,7 @@ export default function ActivityCreate() {
                         {
                             season && season.map((s) => {
                                 return (
-                                    <label className={style.label}>
+                                    <label key={s} className={style.label}>
                                         <input
                                             type="radio"
                                             value={s}
@@ -251,7 +251,7 @@ export default function ActivityCreate() {
                         }
                         <div>
                             {errors.season && (
-                                <p className={style.label}>{errors.season}</p>
+                                <p key={errors.season} className={style.label}>{errors.season}</p>
                             )}
 
                         </div>
@@ -261,12 +261,12 @@ export default function ActivityCreate() {
                         <label className={style.label}>Country: </label>
                         <div>
                             <select className={style.option} onChange={(e) => handleSelect(e)}>
-                                <option selected disabled>Choose a country</option>
+                                <option value='choose' selected disabled>Choose a country</option>
                                 {
-                                    OrderCountries && OrderCountries.map((c, i) => {
+                                    OrderCountries && OrderCountries.map((c) => {
                                         return (
                                             <option
-                                                key={i}
+                                                key={c.id}
                                                 value={c.name}
                                                 name={c.name}
 
@@ -276,7 +276,7 @@ export default function ActivityCreate() {
                                 }
                             </select>
                             {errors.country && (
-                                <p className={style.label}>{errors.country}</p>
+                                <p key={errors.country} className={style.label}>{errors.country}</p>
                             )}
                         </div>
                     </div>
@@ -288,7 +288,7 @@ export default function ActivityCreate() {
                     {
                         filterCountry2 && filterCountry2.map(s => {
                             return (
-                                <div className={style.countryletter} >
+                                <div key={s.id} className={style.countryletter} >
                                     <button className={style.delete} onClick={() => handleDelete(s.name)}>X</button>
                                     <label className={style.country}> {s.name} </label>
                                     <img className={style.img} src={s.flag} width="25px" height="20px" alt="flag not found" />

@@ -85,7 +85,7 @@ export default function Home() {
                         <button className={style.button}>Create a New Activity</button>
                     </Link>
 
-                    <SearchBar />
+                    <SearchBar setCurrentPage={setCurrentPage} />
                 </section>
 
                 <button className={style.button} onClick={(e) => { handleOnClick(e) }}>Reload All Countries</button>
@@ -121,7 +121,7 @@ export default function Home() {
                             <option hidden>Filter by Region</option>
                             <option value="allRegion">All Region</option>
                             {regiones.map((region) => {
-                                return <option value={region}> {region} </option>
+                                return <option key={region} value={region}> {region} </option>
                             })}
                         </select>
                     </section>
@@ -133,7 +133,7 @@ export default function Home() {
                         <select className={style.option} onChange={(e) => handleFilteredByActivities(e)}>
                             <option value="allActivities">All Activities</option>
                             {array.map((activity) => {
-                                return <option value={activity.name}> {activity.name} </option>
+                                return <option key={activity.id} value={activity.name}> {activity.name} </option>
                             })}
                         </select>
                     </section>
@@ -152,7 +152,7 @@ export default function Home() {
                 {
                     currentCountries && currentCountries.map((c) => {
                         return (
-                            <div>
+                            <div key={c.id}>
 
                                 <CountryCard
                                     name={c.name}

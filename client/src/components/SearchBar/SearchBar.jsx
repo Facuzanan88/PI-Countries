@@ -6,7 +6,7 @@ import { searchByName } from '../../actions';
 
 import style from './SearchBar.module.css'
 
-export default function SearchBar() {
+export default function SearchBar({ setCurrentPage }) {
     const dispatch = useDispatch();
 
     let [name, setName] = useState('');
@@ -18,7 +18,10 @@ export default function SearchBar() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(searchByName(name));
+        if (name === "") return alert('Enter a country')
+        let search = dispatch(searchByName(name));
+        if (search.length <= 0) return alert('The country is not found')
+        setCurrentPage(1);
         setName('');
     }
 

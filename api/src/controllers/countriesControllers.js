@@ -35,17 +35,5 @@ const getCountriesFromDb = async (req, res) => {
     return countries;
 }
 
-/* const getCountriesFromDb = async (req, res) => {
-    const countries = Country.findAll({
-        include: {
-            model: Activity,
-            atributes: ["name"],
-            throug: {
-                atributes: []
-            }
-        }
-    })
-    return countries;
-} */
 
 module.exports = { getCountriesFromDb }
