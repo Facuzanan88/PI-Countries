@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, FILTERED_BY_REGION, FILTERED_BY_ACTIVITIES, ORDER_BY_ALFA, ORDER_BY_POPU, SEARCH_BY_NAME, GET_ACTIVITIES, NEW_ACTIVITIES, GET_DETAILS } from "../actions";
+import { GET_COUNTRIES, FILTERED_BY_REGION, FILTERED_BY_ACTIVITIES, ORDER_BY_ALFA, ORDER_BY_POPU, SEARCH_BY_NAME, GET_ACTIVITIES, NEW_ACTIVITIES, GET_DETAILS, ORDER_BY_AREA } from "../actions";
 
 const initialState = {
     allCountries: [],
@@ -95,6 +95,31 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 countries: ordenedCountries
+            }
+
+        case ORDER_BY_AREA:
+            const allCountries5 = state.countries
+            const ordenedCountriesS = action.payload === "areaAsc" ? allCountries5.sort((a, b) => {
+                if (a.area < b.area) {
+                    return -1;
+                } else if (a.area > b.area) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            })
+                : allCountries5.sort((a, b) => {
+                    if (a.area < b.area) {
+                        return 1;
+                    } else if (a.area > b.area) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
+                });
+            return {
+                ...state,
+                countries: ordenedCountriesS
             }
 
         case GET_ACTIVITIES:

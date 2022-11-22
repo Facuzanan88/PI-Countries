@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
             res.status(200).json(countries);
         }
     } catch (error) {
-        return res.status(404).send("El código recibido no corresponde a un pais existente")
+        return res.status(404).send("Error al cargar la Base de Datos")
     }
 });
 

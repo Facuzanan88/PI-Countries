@@ -19,8 +19,7 @@ export default function SearchBar({ setCurrentPage }) {
     function handleSubmit(e) {
         e.preventDefault();
         if (name === "") return alert('Enter a country')
-        let search = dispatch(searchByName(name));
-        if (search.length <= 0) return alert('The country is not found')
+        dispatch(searchByName(name));
         setCurrentPage(1);
         setName('');
     }

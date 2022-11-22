@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import CountryCard from '../CountryCard/CountryCard';
 import Paginado from '../Paginado/Paginado';
 
-import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities, orderByAlfa, orderByPopu, getActivities } from '../../actions';
+import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities, orderByAlfa, orderByPopu, getActivities, orderByArea } from '../../actions';
 import SearchBar from '../SearchBar/SearchBar';
 
 import style from './Home.module.css'
@@ -66,6 +66,15 @@ export default function Home() {
         setOrden(e.target.value)
     }
 
+    function handleOrderByArea(e) {
+        e.preventDefault();
+        dispatch(orderByArea(e.target.value))
+        setCurrentPage(1);
+        setOrden(e.target.value)
+    }
+
+
+
     function handleOrderByPopu(e) {
         e.preventDefault();
         dispatch(orderByPopu(e.target.value))
@@ -112,6 +121,19 @@ export default function Home() {
                             <option value="PoblacionDesc">descend</option>
                         </select>
                     </section>
+                    {/* 
+                    <section className={style.section} defaultValue='Order by Area'>
+                        <section className={style.filter}>
+                            <label className={style.label}>
+                                Order By Area:
+                            </label>
+                            <select className={style.option} onChange={(e) => { handleOrderByArea(e) }}>
+                                <option hidden>Order by Area</option>
+                                <option value="areaAsc">Ascendent</option>
+                                <option value="areaDesc">Descendent</option>
+                            </select>
+                        </section>
+                    </section> */}
 
                     <section className={style.filter}>
                         <label className={style.label}>
@@ -138,7 +160,6 @@ export default function Home() {
                         </select>
                     </section>
                 </section>
-
             </header>
 
             <Paginado
