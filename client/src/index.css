@@ -20,3 +20,9 @@ input {
 :root {
   --border-color: #073b4c;
 }
+
+.div {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.15;
+}

@@ -10,7 +10,8 @@
      z-index: 1;
      columns: 2;
      align-items: center;
-     padding: 1.75rem;
+     padding-top: 5rem;
+     padding-bottom: 1.75rem;
  }
 
  .header2 {
