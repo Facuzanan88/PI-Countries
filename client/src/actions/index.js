@@ -16,7 +16,7 @@ export const ORDER_BY_AREA = "ORDER_BY_AREA";
 export function getCountries() {
     return async function (dispatch) {
         try {
-            let json = await axios.get('http://localhost:3001/countries');
+            let json = await axios.get('/countries');
             return dispatch({
                 type: GET_COUNTRIES,
                 payload: json.data,
@@ -30,7 +30,7 @@ export function getCountries() {
 export function searchByName(name) {
     return async function (dispatch) {
         try {
-            let json = await axios.get('http://localhost:3001/countries?name=' + name);
+            let json = await axios.get('/countries?name=' + name);
             return dispatch({
                 type: SEARCH_BY_NAME,
                 payload: json.data,
@@ -45,7 +45,7 @@ export function searchByName(name) {
 export function getDetails(id) {
     return async function (dispatch) {
         try {
-            let json = await axios.get(`http://localhost:3001/countries/${id}`);
+            let json = await axios.get(`/countries/${id}`);
             return dispatch({
                 type: GET_DETAILS,
                 payload: json.data,
@@ -95,7 +95,7 @@ export function orderByArea(payload) {
 export function getActivities() {
     return async function (dispatch) {
         try {
-            let json = await axios.get('http://localhost:3001/activities');
+            let json = await axios.get('/activities');
             return dispatch({
                 type: GET_ACTIVITIES,
                 payload: json.data
@@ -109,7 +109,7 @@ export function getActivities() {
 export function newActivity(payload) {
     return async function (dispatch) {
         try {
-            const json = await axios.post('http://localhost:3001/activities', payload)
+            const json = await axios.post('/activities', payload)
             return {
                 type: 'POST_ACTIVITY',
                 json
@@ -123,7 +123,7 @@ export function newActivity(payload) {
 export function deleteActivity(id) {
     return async function (dispatch) {
         try {
-            let json = await axios.delete(`http://localhost:3001/activities/${id}`)
+            let json = await axios.delete(`/activities/${id}`)
             return dispatch({
                 type: DELETE_ACTIVITY,
                 payload: json.data
