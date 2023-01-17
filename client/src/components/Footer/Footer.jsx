@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <div>
             <div className={style.container}>
-                <div>
+                <div className={style.name}>
                     <p>Copyright © Facu Zanandrea 2022</p>
                 </div>
                 <div className={style.icons}>
