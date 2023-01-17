@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import CountryCard from '../CountryCard/CountryCard';
 import Paginado from '../Paginado/Paginado';
+import Footer from '../Footer/Footer';
 
 import { getCountries, countriesFilteredByRegion, countriesFilteredByActivities, orderByAlfa, orderByPopu, getActivities, orderByArea } from '../../actions';
 import SearchBar from '../SearchBar/SearchBar';
@@ -186,6 +187,9 @@ export default function Home() {
                         )
                     })
                 }
+            </div>
+            <div className={style.footer}>
+                <Footer />
             </div>
         </div >
     )

@@ -68,3 +68,7 @@
  .button:hover {
      color: white
  }
+
+ .footer {
+     padding: 10px;
+ }

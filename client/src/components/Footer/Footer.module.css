@@ -1,0 +1,16 @@
+.container {
+    columns: 1;
+    color: white;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    margin-right: 3rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}

@@ -8,6 +8,7 @@ import { getDetails, deleteActivity } from '../../actions'
 import ActivityCard from '../ActivityCard/ActivityCard';
 
 import style from './CountryDetail.module.css'
+import Footer from '../Footer/Footer';
 
 export default function CountryDetail(props) {
     const dispatch = useDispatch();
@@ -88,7 +89,9 @@ export default function CountryDetail(props) {
                         )}</h5>
                 </div>
             </div>
-
+            <div className={style.footer}>
+                <Footer />
+            </div>
         </main>
     )
 
