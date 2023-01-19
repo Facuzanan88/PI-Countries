@@ -6,7 +6,9 @@ import ActivityCreate from "./components/ActivityCreate/ActivityCreate";
 import countryDetail from "./components/CountryDetail/CountryDetail";
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3001/'
+/* axios.defaults.baseURL = 'http://localhost:3001/' */
+
+axios.defaults.baseURL = 'https://pi-countries-production-a9a5.up.railway.app/'
 
 function App() {
   return (
