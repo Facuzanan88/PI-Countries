@@ -72,3 +72,8 @@
  .footer {
      padding: 10px;
  }
+
+ .loading {
+     width: 1000;
+     height: 500;
+ }

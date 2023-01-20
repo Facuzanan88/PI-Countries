@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import loading from './loading1.gif';
 import CountryCard from '../CountryCard/CountryCard';
 import Paginado from '../Paginado/Paginado';
 import Footer from '../Footer/Footer';
@@ -87,6 +87,8 @@ export default function Home() {
     let hash = {};
     const array = activity.filter(o => (hash[o.name] ? false : hash[o.name] = true));
 
+
+
     return (
         <div>
             <header>
@@ -169,25 +171,28 @@ export default function Home() {
                 allCountries={length}
                 paginado={paginado}
             />
+            {currentCountries.length === 0 ? (
+                <img className={style.loading} src={loading} alt="Loading" />
+            ) :
+                <div className={style.card}>
+                    {
+                        currentCountries && currentCountries.map((c) => {
+                            return (
+                                <div key={c.id}>
 
-            <div className={style.card}>
-                {
-                    currentCountries && currentCountries.map((c) => {
-                        return (
-                            <div key={c.id}>
+                                    <CountryCard
+                                        name={c.name}
+                                        flag={c.flag}
+                                        region={c.region}
+                                        id={c.id}
+                                    />
 
-                                <CountryCard
-                                    name={c.name}
-                                    flag={c.flag}
-                                    region={c.region}
-                                    id={c.id}
-                                />
-
-                            </div>
-                        )
-                    })
-                }
-            </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            }
             <div className={style.footer}>
                 <Footer />
             </div>
