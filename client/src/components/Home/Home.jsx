@@ -176,7 +176,7 @@ export default function Home() {
             ) :
                 <div className={style.card}>
                     {
-                        currentCountries.length && currentCountries.map((c) => {
+                        currentCountries.length > 0 && currentCountries.map((c) => {
                             console.log(currentCountries)
                             return (
                                 <div key={c.id}>
