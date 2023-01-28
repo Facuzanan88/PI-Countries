@@ -171,12 +171,12 @@ export default function Home() {
                 allCountries={length}
                 paginado={paginado}
             />
-            {currentCountries.length === 0 ? (
+            {!currentCountries.length ? (
                 <img className={style.loading} src={loading} alt="Loading" />
             ) :
                 <div className={style.card}>
                     {
-                        currentCountries.length > 0 && currentCountries.map((c) => {
+                        currentCountries.length && currentCountries.map((c) => {
                             console.log(currentCountries)
                             return (
                                 <div key={c.id}>
