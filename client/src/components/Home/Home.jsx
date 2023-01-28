@@ -177,6 +177,7 @@ export default function Home() {
                 <div className={style.card}>
                     {
                         currentCountries.length && currentCountries.map((c) => {
+                            console.log(currentCountries)
                             return (
                                 <div key={c.id}>
 
