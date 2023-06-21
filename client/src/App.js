@@ -9,7 +9,7 @@ import axios from 'axios';
 /* axios.defaults.baseURL = 'http://localhost:3001/' */
 
 
-axios.defaults.baseURL = 'pi-countries-production-b10c.up.railway.app'
+axios.defaults.baseURL = 'https://pi-countries-production-b10c.up.railway.app/'
 
 function App() {
   return (
